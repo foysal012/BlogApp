@@ -1,4 +1,5 @@
 import 'package:blog_app/provider/auth_services.dart';
+import 'package:blog_app/provider/blog_list_services.dart';
 import 'package:blog_app/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,9 +28,8 @@ class MyApp extends StatelessWidget {
         providers: [
           // ChangeNotifierProvider(create: (context)=> AuthServices()),
           // ChangeNotifierProvider(create: (context)=> AuthServices()),
-          // ChangeNotifierProvider(create: (context)=> AuthServices()),
           ChangeNotifierProvider(create: (context)=> AuthServices()),
-
+          ChangeNotifierProvider(create: (context)=> BlogListServices()),
         ],
       child: MaterialApp(
         title: 'Flutter Demo',
