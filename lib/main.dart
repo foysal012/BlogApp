@@ -1,5 +1,9 @@
 import 'package:blog_app/provider/auth_services.dart';
 import 'package:blog_app/provider/blog_list_services.dart';
+import 'package:blog_app/screen/add_new_blog.dart';
+import 'package:blog_app/screen/blog_api(add_blog).dart';
+import 'package:blog_app/screen/blog_api2(update_blog).dart';
+import 'package:blog_app/screen/blog_api3(delete_blog).dart';
 import 'package:blog_app/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,10 +30,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          // ChangeNotifierProvider(create: (context)=> AuthServices()),
-          // ChangeNotifierProvider(create: (context)=> AuthServices()),
           ChangeNotifierProvider(create: (context)=> AuthServices()),
           ChangeNotifierProvider(create: (context)=> BlogListServices()),
+          ChangeNotifierProvider(create: (context)=> BlogApi()),
+          ChangeNotifierProvider(create: (context)=> BlogApi2()),
+          ChangeNotifierProvider(create: (context)=> BlogApi3()),
         ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -39,6 +44,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
+        //home: AddNewBlog(),
       ),
     );
   }

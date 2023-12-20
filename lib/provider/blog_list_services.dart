@@ -6,7 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class BlogListServices with ChangeNotifier{
 
-Future<dynamic> getAllBlog() async{
+ Future<dynamic> getAllBlog() async{
+
+  var data;
 
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
@@ -22,22 +24,20 @@ Future<dynamic> getAllBlog() async{
     );
 
     print(response.statusCode);
-    print(response.body);
+    //print(response.body);
 
     if(response.statusCode == 200){
-      var data = jsonDecode(response.body);
+       data = jsonDecode(response.body);
       print(data["data"]);
 
-      return data;
+      //return data;
     }
+    return data;
 
   } catch (e){
     print(e.toString());
   }
   notifyListeners();
-
-
-
 
 }
 

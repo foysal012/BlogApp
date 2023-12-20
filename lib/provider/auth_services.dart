@@ -21,7 +21,7 @@ class AuthServices with ChangeNotifier{
       );
 
       print(response.statusCode);
-      print(response.body);
+      //print(response.body);
 
       if(response.statusCode == 200){
         var data = jsonDecode(response.body);
